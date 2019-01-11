@@ -43,7 +43,7 @@ To download the tutorials, type
 git clone https://github.com/FNALLPC/statistics-das
 ```
 
-Now, in your directory tab, there should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on `setup-libraries.ipynb` and running it.
+Now, in your directory tab, there should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on [`setup-libraries.ipynb`](setup-libraries.ipynb) and running it.
 
 ## Links
 
