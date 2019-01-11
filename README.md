@@ -29,7 +29,7 @@ If this is the first time using this JupyterHub, you should see:
   <img src="vanderbilt.png" width="500"/>
 </p>
 
-Click the "Sign in with CILogon" button. On the following page, select CERN as your identity provider and click the "Log On" button. Then, enter your CERN credentials or use your CERN grid certificate to autheticate.
+Click the "Sign in with Jupyter ACCRE" button. On the following page, select CERN as your identity provider and click the "Log On" button. Then, enter your CERN credentials or use your CERN grid certificate to autheticate.  Click "Spawn" to start a "Default ACCRE Image v2" image.
 
 Now you should see the JupyterHub home directory. Click on "New" then "Terminal" in the top right to launch a new terminal.
 
@@ -43,7 +43,7 @@ To download the tutorials, type
 git clone https://github.com/FNALLPC/statistics-das
 ```
 
-Now, in your directory tab, there should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.
+Now, in your directory tab, there should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on `setup-libraries.ipynb` and running it.
 
 ## Links
 
