@@ -1,0 +1,21 @@
+imax 2
+jmax 2
+kmax 7
+---------------
+shapes * * shapes_file.root $CHANNEL/$PROCESS  $CHANNEL/$PROCESS_$SYSTEMATIC
+---------------
+bin ejets mujets
+observation 4734 6448
+------------------------------
+bin             ejets      ejets   ejets   mujets     mujets    mujets
+process         tprime600  top     ewk     tprime600  top       ewk
+process         0          1       2       0          1         2
+rate            227        4048    760     302        5465.496783      1098.490939
+--------------------------------
+lumi     lnN    1.10        -       -     1.10        -         -
+bgnortop lnN    -          1.114    -     -          1.114      -
+bgnorewk lnN    -           -      1.5    -           -        1.5
+eff_mu   lnN    -           -       -     1.03       1.03      1.03
+eff_e    lnN    1.03       1.03    1.03    -          -         -
+jes    shape    1           1       1      1          1         1   uncertainty on shape due to JES uncertainty
+btgsf  shape    1           1       1      1          1         1   uncertainty on shape due to b-tagging scale factor uncertainty

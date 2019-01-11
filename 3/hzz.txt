@@ -1,0 +1,23 @@
+# derived from Table 4 (page 58) of http://arxiv.org/pdf/1312.5353v3
+
+imax     3   number of bins
+jmax     2   number of samples minus one
+kmax     *   number of nuisance parameters
+--------------------------------------------------------
+bin                             bin4e       bin2e2m         bin4m
+observation                      4         13          8
+--------------------------------------------------------
+bin                             bin4e       bin2e2m         bin4m         bin4e       bin2e2m         bin4m         bin4e       bin2e2m         bin4m
+process                       h125       h125       h125         zz	    zz	       zz	  zx	     zx		zx
+process                          0          0          0          1          1          1          2          2          2
+rate                           3.0        7.9        6.4	1.1        3.2	      2.5        0.8        1.3        0.4
+-------------------------------------------------------------------------------
+h125_rate_4e    lnN            1.13	    -	       -          -          -          -          -          -          -
+h125_rate_2e2m  lnN               -       1.13         -          -          -          -          -          -          -
+h125_rate_4m    lnN               -          -      1.11          -          -          -          -          -          -
+zz_rate_4e      lnN               -	     - 	       -       1.09          -          -          -          -          -
+zz_rate_2e2m    lnN               -          -         -          -       1.06          -          -          -          -
+zz_rate_4m      lnN               -          -         -          -          -       1.08          -          -          -
+zx_rate_4e      lnN               -	     - 	       -          -          -          -       1.25          -          -
+zx_rate_2e2m    lnN               -          -         -          -          -          -          -       1.23          -
+zx_rate_4m      lnN               -          -         -          -          -          -          -          -       1.15

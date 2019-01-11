@@ -6,8 +6,8 @@ import os, sys, re
 from glob import glob
 from array import array
 from string import split, strip, atoi, atof, replace, joinfields
-from math import *
-from ROOT import *
+from math import sqrt, log
+import ROOT as rt
 #-----------------------------------------------------------------------------
 # Hack to suppress harmless warning
 # see: https://root.cern.ch/phpBB3/viewtopic.php?f=14&t=17682
@@ -77,12 +77,12 @@ def deltaPhi(phi1, phi2):
         return deltaphi
 
 def setStyle():
-    style = TStyle("TNM", "TNM")
+    style = rt.TStyle("TNM", "TNM")
     style.SetPalette(1)
     
     # For the canvases
     style.SetCanvasBorderMode(0)
-    style.SetCanvasColor(kWhite)
+    style.SetCanvasColor(rt.kWhite)
     style.SetCanvasDefH(500) #Height of canvas
     style.SetCanvasDefW(500) #Width of canvas
     style.SetCanvasDefX(0)   #Position on screen
@@ -90,10 +90,10 @@ def setStyle():
 
     # For the pads
     style.SetPadBorderMode(0)
-    style.SetPadColor(kWhite)
-    style.SetPadGridX(kFALSE)
-    style.SetPadGridY(kFALSE)
-    style.SetGridColor(kGreen)
+    style.SetPadColor(rt.kWhite)
+    style.SetPadGridX(False)
+    style.SetPadGridY(False)
+    style.SetGridColor(rt.kGreen)
     style.SetGridStyle(3)
     style.SetGridWidth(1)
 
@@ -107,7 +107,7 @@ def setStyle():
     style.SetFrameLineWidth(1)
 
     # For the histograms
-    style.SetHistLineColor(kBlack)
+    style.SetHistLineColor(rt.kBlack)
     style.SetHistLineStyle(0)
     style.SetHistLineWidth(2)
 
@@ -132,7 +132,7 @@ def setStyle():
     style.SetOptStat("")
     # To display the mean and RMS:
     # style.SetOptStat("mr") 
-    style.SetStatColor(kWhite)
+    style.SetStatColor(rt.kWhite)
     style.SetStatFont(TEXTFONT)
     style.SetStatFontSize(0.03)
     style.SetStatTextColor(1)
@@ -170,7 +170,7 @@ def setStyle():
 
     # For the axis:
     style.SetAxisColor(1, "XYZ")
-    style.SetStripDecimals(kTRUE)
+    style.SetStripDecimals(True)
     style.SetTickLength(0.03, "XYZ")
     style.SetNdivisions(NDIVX, "XYZ")
     # To get tick marks on the opposite side of the frame
@@ -203,7 +203,7 @@ def expo(x, fmt="%4.2f", code="#"):
 class TimeLeft:
     def __init__(self, ntoys):
         self.ntoys = ntoys
-        self.swatch = TStopwatch()
+        self.swatch = rt.TStopwatch()
     def __del__(self):
         pass
     def __call__(self, ii):
@@ -228,7 +228,7 @@ class Scribe:
         self.xpos = xxpos
         self.ypos = yypos
         self.linewidth = 1.5*size
-        self.t = TLatex()
+        self.t = rt.TLatex()
         self.t.SetNDC()
         self.t.SetTextSize(size)
         self.t.SetTextFont(font)
@@ -442,8 +442,8 @@ def mkpline(xx, y1, y2, boundary, **args):
     else:
         xmin, xmax, ymin, ymax = boundary
 
-    np = gPad.ClipPolygon(np, x, y, npp, xc, yc, xmin, ymin, xmax, ymax)
-    pl = TPolyLine(np, xc, yc)
+    np = rt.gPad.ClipPolygon(np, x, y, npp, xc, yc, xmin, ymin, xmax, ymax)
+    pl = rt.TPolyLine(np, xc, yc)
     pl.SetLineColor(color)
     pl.SetLineWidth(lwidth)
     pl.SetFillColor(color)
@@ -454,13 +454,13 @@ def mkpline(xx, y1, y2, boundary, **args):
 def mkhist1(hname, xtitle, ytitle, nbins, xmin, xmax, **args):
     ymin   = getarg(args, 'ymin', None)
     ymax   = getarg(args, 'ymax', None)
-    color  = getarg(args, 'color',   kBlack)
+    color  = getarg(args, 'color',   rt.kBlack)
     lstyle = getarg(args, 'lstyle',  1)
     lwidth = getarg(args, 'lwidth',  1)
     ndivx  = getarg(args, 'ndivx',   505)
     ndivy  = getarg(args, 'ndivy',   510)
 
-    h = TH1F(hname, "", nbins, xmin, xmax)		
+    h = rt.TH1F(hname, "", nbins, xmin, xmax)		
     h.SetLineColor(color)
     h.SetLineStyle(lstyle)
     h.SetLineWidth(lwidth)
@@ -484,13 +484,13 @@ def mkhist1(hname, xtitle, ytitle, nbins, xmin, xmax, **args):
 def mkhist2(hname, xtitle, ytitle,
         nbinx, xmin, xmax,	
         nbiny, ymin, ymax, **args):
-    color  = getarg(args, 'color',   kBlack)
+    color  = getarg(args, 'color',   rt.kBlack)
     mstyle = getarg(args, 'mstyle',  20)
     msize  = getarg(args, 'msize',   0.5)
     ndivx  = getarg(args, 'ndivx',   505)
     ndivy  = getarg(args, 'ndivy',   505)
 
-    h = TH2F(hname, "", nbinx, xmin, xmax, nbiny, ymin, ymax)
+    h = rt.TH2F(hname, "", nbinx, xmin, xmax, nbiny, ymin, ymax)
     h.SetLineColor(color)
     h.SetMarkerColor(color)
     h.SetMarkerSize(msize)
@@ -507,7 +507,7 @@ def mkhist2(hname, xtitle, ytitle,
     h.SetNdivisions(ndivy, "Y")
     return h
 def fixhist2(h, xtitle=None, ytitle=None, **args):
-    color  = getarg(args, 'color',   kBlack)
+    color  = getarg(args, 'color',   rt.kBlack)
     mstyle = getarg(args, 'mstyle',  20)
     msize  = getarg(args, 'msize',   0.5)
     ndivx  = getarg(args, 'ndivx',   505)
@@ -529,7 +529,7 @@ def fixhist2(h, xtitle=None, ytitle=None, **args):
 def mkgraph(x, y, xtitle, ytitle, xmin, xmax, **args):
     ymin   = getarg(args, 'ymin', None)
     ymax   = getarg(args, 'ymax', None)
-    color  = getarg(args, 'color',   kBlack)
+    color  = getarg(args, 'color',   rt.kBlack)
     lstyle = getarg(args, 'lstyle',  1)
     lwidth = getarg(args, 'lwidth',  1)
     msize  = getarg(args, 'msize',   0.5)
@@ -539,7 +539,7 @@ def mkgraph(x, y, xtitle, ytitle, xmin, xmax, **args):
     name   = getarg(args, 'name', None)
 
     if y == None:
-        g = TGraph()
+        g = rt.TGraph()
     else:
         n = len(y)
         xx = x
@@ -551,7 +551,7 @@ def mkgraph(x, y, xtitle, ytitle, xmin, xmax, **args):
             yy = array('d')
             for i in range(n): yy.append(y[i])
 
-        g = TGraph(n, xx, yy)
+        g = rt.TGraph(n, xx, yy)
 
     if name != None: g.SetName(name)
 
@@ -578,7 +578,7 @@ def mkgraph(x, y, xtitle, ytitle, xmin, xmax, **args):
 def mkgraphErrors(x, y, ex, ey, xtitle, ytitle, xmin, xmax, **args):
     ymin   = getarg(args, 'ymin', None)
     ymax   = getarg(args, 'ymax', None)
-    color  = getarg(args, 'color',   kBlack)
+    color  = getarg(args, 'color',   rt.kBlack)
     lstyle = getarg(args, 'lstyle',  1)
     lwidth = getarg(args, 'lwidth',  1)
     ndivx  = getarg(args, 'ndivx',   505)
@@ -603,7 +603,7 @@ def mkgraphErrors(x, y, ex, ey, xtitle, ytitle, xmin, xmax, **args):
         eyy = array('d')
         for i in range(n): eyy.append(ey[i])
 
-    g = TGraphErrors(n, xx, yy, exx, eyy)
+    g = rt.TGraphErrors(n, xx, yy, exx, eyy)
 
     g.SetLineColor(color)
     g.SetLineStyle(lstyle)
@@ -634,7 +634,7 @@ def mkcdf(hist, minbin=1):
     c[j] = hist.Integral()
     return c
 
-def mkroc(name, hsig, hbkg, lcolor=kBlue, lwidth=2, ndivx=505, ndivy=505):
+def mkroc(name, hsig, hbkg, lcolor=rt.kBlue, lwidth=2, ndivx=505, ndivy=505):
     from array import array
     csig = mkcdf(hsig)
     cbkg = mkcdf(hbkg)
@@ -644,7 +644,7 @@ def mkroc(name, hsig, hbkg, lcolor=kBlue, lwidth=2, ndivx=505, ndivy=505):
     for i in xrange(npts):
         esig.append(1 - csig[npts-1-i])
         ebkg.append(1 - cbkg[npts-1-i])
-    g = TGraph(npts, ebkg, esig)
+    g = rt.TGraph(npts, ebkg, esig)
     g.SetName(name)
     g.SetLineColor(lcolor)
     g.SetLineWidth(lwidth)
@@ -660,11 +660,11 @@ def mkroc(name, hsig, hbkg, lcolor=kBlue, lwidth=2, ndivx=505, ndivy=505):
     return g
 
 def mklegend(xx, yy, xw, yw):
-    lg = TLegend(xx, yy, xx+xw, yy+yw)
-    lg.SetFillColor(kWhite)
+    lg = rt.TLegend(xx, yy, xx+xw, yy+yw)
+    lg.SetFillColor(rt.kWhite)
     lg.SetTextFont(TEXTFONT)
     lg.SetBorderSize(0)
-    lg.SetShadowColor(kWhite)
+    lg.SetShadowColor(rt.kWhite)
     return lg
 #------------------------------------------------------------------------------
 class Row:
@@ -893,7 +893,7 @@ class Ntuple:
             return
 
         # create a chain of files
-        self.chain = TChain(treename)
+        self.chain = rt.TChain(treename)
         if not self.chain:
             print "*** Ntuple *** can't create chain %s" % treename
             sys.exit(0)
@@ -1020,7 +1020,7 @@ class Ntuple:
 
                 # evaluate it
 
-                gROOT.ProcessLine(rec)
+                rt.gROOT.ProcessLine(rec)
 
                 # now import struct
                 exec("from ROOT import %s" % bufferName)
@@ -1239,7 +1239,7 @@ class BDT:
 
         if node == None:
             hname = "%s%5.5d" % (hname, itree)
-            self.hplot = TH2Poly(hname, "", xmin, xmax, ymin, ymax)
+            self.hplot = rt.TH2Poly(hname, "", xmin, xmax, ymin, ymax)
             self.hplot.GetXaxis().SetTitle(xtitle)
             self.hplot.GetYaxis().SetTitle(ytitle)
             self.hplot.GetYaxis().SetTitleOffset(1.6)
