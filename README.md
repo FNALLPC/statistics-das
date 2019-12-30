@@ -29,7 +29,13 @@ If this is the first time using this JupyterHub, you should see:
   <img src="vanderbilt.png" width="500"/>
 </p>
 
-Click the "Sign in with Jupyter ACCRE" button. On the following page, select CERN as your identity provider and click the "Log On" button. Then, enter your CERN credentials or use your CERN grid certificate to autheticate.  Click "Spawn" to start a "Default ACCRE Image v5" image.
+Click the "Sign in with Jupyter ACCRE" button. On the following page, select CERN as your identity provider and click the "Log On" button. Then, enter your CERN credentials or use your CERN grid certificate to autheticate.  
+
+To start a new session, make sure the following drop-down options are selected:
+* **Select a Docker image:** *Default ACCRE Image v5*
+* **Select a container size:** *1 Core, 2GB RAM, 4 day timeout*
+
+Then click the orange **Spawn** button.
 
 Now you should see the JupyterHub home directory. Click on "New" then "Terminal" in the top right to launch a new terminal.
 
