@@ -11,7 +11,7 @@ This is a set of tutorials for the CMS Statistics Data Analysis School (DAS) Sho
  2. [`1/exercise_1.ipynb`](1/exercise_1.ipynb): analyzing a single count using `RooFit`/`RooStats` 
  3. [`2/exercise_2.ipynb`](2/exercise_2.ipynb): analyzing three counts using `RooFit`/`RooStats`
  4. [`3/exercise_3a.ipynb`](3/exercise_3a.ipynb): analyzing three counts using `combine`
- 5. [`3/exercise_3b.ipynb`](3/exercise_3b.ipynb): a realistic couting experiment using `combine`
+ 5. [`3/exercise_3b.ipynb`](3/exercise_3b.ipynb): a realistic counting experiment using `combine`
  6. [`3/exercise_3c.ipynb`](3/exercise_3c.ipynb): systematic uncertainties for data-driven background estimates using `combine`
  7. [`4/exercise_4.ipynb`](4/exercise_4.ipynb): binned fit to Run I H->gg data (optional)
  8. [`5/exercise_5.ipynb`](5/exercise_5.ipynb): unbinned fit to Type Ia supernovae distance modulus/red shift data (optional)
