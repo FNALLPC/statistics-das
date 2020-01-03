@@ -19,9 +19,12 @@ This is a set of tutorials for the CMS Statistics Data Analysis School (DAS) Sho
  
 ## Setup
 
-We will be using the Vanderbilt JupyterHub. Point your browser to:
+We will be using the Vanderbilt JupyterHub. *Hint! You may want to open this link in a new tab so that you can refer to these instructions for the next steps.*
+
+Point your browser to:
 
 [https://jupyter.accre.vanderbilt.edu/](https://jupyter.accre.vanderbilt.edu/)
+
 
 If this is the first time using this JupyterHub, you should see:
 
@@ -48,6 +51,8 @@ To download the tutorials, type
 ```
 git clone https://github.com/FNALLPC/statistics-das
 ```
+
+*Hint! If you want to cut-and-paste this command in the terminal, highlight the link and copy it as you usually would (Ctrl+c). To paste it, use Shift+Ctrl+v*
 
 Now, in your directory tab, there should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on [`setup-libraries.ipynb`](setup-libraries.ipynb) and running it.
 
