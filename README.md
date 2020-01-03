@@ -19,7 +19,9 @@ This is a set of tutorials for the CMS Statistics Data Analysis School (DAS) Sho
  
 ## Setup
 
-We will be using the Vanderbilt JupyterHub. *Hint! You may want to open this link in a new tab so that you can refer to these instructions for the next steps.*
+We will be using the Vanderbilt JupyterHub. 
+
+*Hint! You may want to open this link in a new tab so that you can refer to these instructions for the next steps.*
 
 Point your browser to:
 
