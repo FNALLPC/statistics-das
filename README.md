@@ -60,7 +60,7 @@ Now, in your directory tab, there should be a new directory called `statistics-d
 
 ## Links
 
-The indico page is: [https://indico.cern.ch/e/cmsdas2019](https://indico.cern.ch/e/cmsdas2019)
+The indico page is: [https://indico.cern.ch/e/cmsdas2020](https://indico.cern.ch/e/cmsdas2020)
 
 The Mattermost for live support is: [https://mattermost.web.cern.ch/cmsdaslpc2019/channels/shortexercisestat](https://mattermost.web.cern.ch/cmsdaslpc2019/channels/shortexercisestat)
 
