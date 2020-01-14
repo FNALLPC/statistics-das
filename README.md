@@ -1,8 +1,8 @@
-# CMS Statistics Data Analsyis School (DAS) Short Exercise
+# CMS Data Analysis School (DAS) - Statistics Short Exercise
 
 ## Introduction
 
-This is a set of tutorials for the CMS Statistics Data Analysis School (DAS) Short Exercise. 
+This is a set of tutorials for the CMS Data Analysis School (DAS) Statistics Short Exercise. 
 
 ## Main notebooks in this tutorial
 
@@ -48,7 +48,7 @@ Now you should see the JupyterHub home directory. Click on "New" then "Terminal"
   <img src="new_terminal.png" width="200"/>
 </p>
 
-To download the tutorials, type
+In the terminal window, download the tutorials by typing:
 
 ```
 git clone https://github.com/FNALLPC/statistics-das
@@ -56,7 +56,7 @@ git clone https://github.com/FNALLPC/statistics-das
 
 *Hint! If you want to cut-and-paste this command in the terminal, highlight the link and copy it as you usually would (Ctrl+c). To paste it, use Shift+Ctrl+v*
 
-Now, in your directory tab, there should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on [`setup-libraries.ipynb`](setup-libraries.ipynb) and running it.
+Now go back to the Jupyter directory tab. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on [`setup-libraries.ipynb`](setup-libraries.ipynb) and running it.
 
 ## Links
 
