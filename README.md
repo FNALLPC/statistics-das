@@ -66,4 +66,4 @@ The Mattermost for live support is: [https://mattermost.web.cern.ch/cmsdaslpc202
 ](https://mattermost.web.cern.ch/cmsdaslpc2022/channels/shortexstatistics
 ). (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
 
-The twiki is: [https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022StatisticsExercise](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022StatisticsExercise)
+The twiki is: [https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022StatisticsExercise](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022StatisticsExercise).
