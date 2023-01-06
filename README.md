@@ -60,10 +60,10 @@ Now go back to the Jupyter directory tab. There should be a new directory called
 
 ## Links
 
-The indico page is: [https://indico.cern.ch/e/cmsdas2022](https://indico.cern.ch/e/cmsdas2022)
+The indico page is: [https://indico.cern.ch/e/cmsdas2023](https://indico.cern.ch/e/cmsdas2023)
 
-The Mattermost for live support is: [https://mattermost.web.cern.ch/cmsdaslpc2022/channels/shortexstatistics
-](https://mattermost.web.cern.ch/cmsdaslpc2022/channels/shortexstatistics
-). (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
+The Mattermost for live support is: <https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortexstatistics>. (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
 
-The twiki is: [https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022StatisticsExercise](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022StatisticsExercise).
+The twiki is: <https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023StatisticsExercise>
+
+FNAL github site (instead of twiki) : <https://fnallpc.github.io/statistics-das/>
