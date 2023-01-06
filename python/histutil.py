@@ -2,16 +2,19 @@
 # Some ROOT histogram utilities
 # Created: sometime in the early 21st century, HBP
 #-----------------------------------------------------------------------------
+from __future__ import absolute_import
+from __future__ import print_function
 import os, sys, re
 from glob import glob
 from array import array
-from string import split, strip, atoi, atof, replace, joinfields
 from math import sqrt, log
 import ROOT as rt
 #-----------------------------------------------------------------------------
 # Hack to suppress harmless warning
 # see: https://root.cern.ch/phpBB3/viewtopic.php?f=14&t=17682
 import warnings
+from six.moves import map
+from six.moves import range
 warnings.filterwarnings( action='ignore', category=RuntimeWarning,
                          message='.*class stack<RooAbsArg\*,deque<RooAbsArg\*> >' )
 warnings.filterwarnings( action='ignore', category=RuntimeWarning,
@@ -187,12 +190,11 @@ def setStyle():
     style.cd()
 #------------------------------------------------------------------------------
 def expo(x, fmt="%4.2f", code="#"):
-    from string import replace, split, atof, atoi
     s = "%10.3e" % x
-    s = replace(s, "e", " ")
-    a = split(s)
-    n = atof(a[0])
-    m = atoi(a[1])
+    s = s.replace("e", " ")
+    a = s.split()
+    n = float(a[0])
+    m = int(a[1])
     num = fmt % n
     if m != 0:
         s = "%s%stimes10^{%d}" % (num, code, m)
@@ -263,7 +265,7 @@ PERCENT = [0.0230,
        0.9770]
 
 def percentiles(points, percent):
-    pts = map(lambda x: x, points)
+    pts = [x for x in points]
     pts.sort()
     np = len(pts)
     ps = []
@@ -284,7 +286,7 @@ class PercentileCurve:
 
     def __init__(self, size):
         self.size = size
-        self.points = map(lambda x: [], size*[0])
+        self.points = [[] for x in size*[0]]
 
     def __del__(self):
         pass
@@ -294,17 +296,17 @@ class PercentileCurve:
         try:
             nbins = curve.GetNbinsX()
             if nbins != self.size:
-                print "*** PercentileCurve - ERROR*** wrong number of bins (points on curve)"
-                print "nbins: %d, size: %d" % (nbins, self.size)
+                print("*** PercentileCurve - ERROR*** wrong number of bins (points on curve)")
+                print("nbins: %d, size: %d" % (nbins, self.size))
                 return False
 
-            for ii in xrange(nbins):
+            for ii in range(nbins):
                 c = curve.GetBinContent(ii+1)
                 self.points[ii].append(c)
         except:
             if len(curve) != self.size:
-                print "*** PercentileCurve - ERROR*** wrong number of points on curve"
-                print "len(curve): %d, size: %d" % (len(curve), self.size)
+                print("*** PercentileCurve - ERROR*** wrong number of points on curve")
+                print("len(curve): %d, size: %d" % (len(curve), self.size))
                 return False
 
             for ii, y in enumerate(curve):
@@ -313,7 +315,7 @@ class PercentileCurve:
 
     def __call__(self, percentile):
         z = []
-        for ii in xrange(self.size):
+        for ii in range(self.size):
             points = self.points[ii]
             points.sort()
             np = len(points)
@@ -343,7 +345,7 @@ class StandardCurve:
 
     def __init__(self, size):
         self.size = size
-        self.points = map(lambda x: [], size*[0])
+        self.points = [[] for x in size*[0]]
 
     def __del__(self):
         pass
@@ -354,17 +356,17 @@ class StandardCurve:
         try:
             nbins = curve.GetNbinsX()
             if nbins != self.size:
-                print "*** StandardCurve - ERROR*** wrong number of bins (points on curve)"
-                print "nbins: %d, size: %d" % (nbins, self.size)
+                print("*** StandardCurve - ERROR*** wrong number of bins (points on curve)")
+                print("nbins: %d, size: %d" % (nbins, self.size))
                 return False
 
-            for ii in xrange(nbins):
+            for ii in range(nbins):
                 c = curve.GetBinContent(ii+1)
                 self.points[ii].append(c)
         except:
             if len(curve) != self.size:
-                print "*** StandardCurve - ERROR*** wrong number of points on curve"
-                print "len(curve): %d, size: %d" % (len(curve), self.size)
+                print("*** StandardCurve - ERROR*** wrong number of points on curve")
+                print("len(curve): %d, size: %d" % (len(curve), self.size))
                 return False
 
             for ii, y in enumerate(curve):
@@ -373,10 +375,10 @@ class StandardCurve:
 
     def __call__(self, nsigma):
         z = []
-        for ii in xrange(self.size):
+        for ii in range(self.size):
             points = self.points[ii]
             c = sum(points)/len(points)
-            ec= sqrt(sum(map(lambda x: (x-c)**2, points))/len(points))
+            ec= sqrt(sum([(x-c)**2 for x in points])/len(points))
             if nsigma != 0: c = c + nsigma * ec
             z.append(c)
         return z
@@ -391,7 +393,7 @@ class StandardCurve:
         return lines
 #------------------------------------------------------------------------------
 def getarg(args, key, d):
-    if args.has_key(key):
+    if key in args:
         return args[key]
     else:
         return d
@@ -418,7 +420,7 @@ def mkpline(xx, y1, y2, boundary, **args):
 
     # upper curve
 
-    for i in xrange(nbins):
+    for i in range(nbins):
         j = nbins - i - 1
         x.append(xx[j])
         y.append(y2[j])
@@ -628,7 +630,7 @@ def mkgraphErrors(x, y, ex, ey, xtitle, ytitle, xmin, xmax, **args):
 def mkcdf(hist, minbin=1):
     c = [0.0]*(hist.GetNbinsX()-minbin+2)
     j=0
-    for ibin in xrange(minbin, hist.GetNbinsX()+1):
+    for ibin in range(minbin, hist.GetNbinsX()+1):
         c[j] = c[j-1] + hist.GetBinContent(ibin)
         j += 1
     c[j] = hist.Integral()
@@ -641,7 +643,7 @@ def mkroc(name, hsig, hbkg, lcolor=rt.kBlue, lwidth=2, ndivx=505, ndivy=505):
     npts = len(csig)
     esig = array('d')
     ebkg = array('d')
-    for i in xrange(npts):
+    for i in range(npts):
         esig.append(1 - csig[npts-1-i])
         ebkg.append(1 - cbkg[npts-1-i])
     g = rt.TGraph(npts, ebkg, esig)
@@ -672,7 +674,7 @@ class Row:
         self.row = rownumber
         self.varmap = varmap
         self.data = data
-        self.items = map(lambda x: (x[1],x[0]), self.varmap.items())
+        self.items = [(x[1],x[0]) for x in list(self.varmap.items())]
         self.items.sort()
 
         # Initialize row counter
@@ -683,7 +685,7 @@ class Row:
         pass
 
     def __call__(self, variable):
-        if not self.varmap.has_key(variable): return None
+        if variable not in self.varmap: return None
         index = self.varmap[variable]
         return self.data[index]
 
@@ -696,7 +698,7 @@ class Row:
             else:
                 strvalue = "%12s" % value
             strrep += "%4d\t%-32s\t%s\n" % (index, name, strvalue)
-        return strip(strrep)
+        return str.strip(strrep)
 
     # Implement Python iterator protocol	
     def __iter__(self):
@@ -724,7 +726,7 @@ class Row:
 #------------------------------------------------------------------------------
 def tonumber(x):
     try:
-        y = atof(x)
+        y = float(x)
     except:
         y = x
     return y
@@ -735,12 +737,12 @@ class Table:
         try:
             myfile = open(filename, 'r')
         except:
-            print "*** can't read file %s" % filename
+            print("*** can't read file %s" % filename)
             sys.exit(0)
 
         # Read header
         records = myfile.readlines()
-        header  = split(records[0])
+        header  = str.split(records[0])
         self.header = header
 
         rownumber = 0
@@ -748,7 +750,7 @@ class Table:
         index = 1
         for record in records[1:]:
             # Convert to numbers
-            record = map(tonumber, split(record))
+            record = list(map(tonumber, str.split(record)))
             self.data.append(record)
             rownumber += 1
             if nrows > 0:
@@ -767,7 +769,7 @@ class Table:
 
         # Create a name to index map for rows
         self.rowmap = {} # empty map
-        for index in xrange(len(self.data)):
+        for index in range(len(self.data)):
             self.rowmap['%d' % index] = index            
 
     def __del__(self):
@@ -779,7 +781,7 @@ class Table:
         if variable == None:
             return Row(rownumber, self.varmap, self.data[rownumber])
         else:
-            if not self.varmap.has_key(variable): return None
+            if variable not in self.varmap: return None
             index = self.varmap[variable]
             return self.data[row][index]
 
@@ -807,7 +809,7 @@ class Table:
     def column(self, index):
         if index > self.maxrow: return None
         d = [0]*len(self.data)
-        for ii in xrange(len(self.data)):
+        for ii in range(len(self.data)):
             d[ii] = self.data[ii][index]
         data = Row(index, self.rowmap, d)
         return data
@@ -838,7 +840,7 @@ class Buffer:
         self.variable = variable
 
     def __getattr__(self, variable):
-        if self.buffermap.has_key(variable):
+        if variable in self.buffermap:
             jj = self.buffermap[variable]
             return self.buffer[jj].__getattribute__(variable)
         else:
@@ -875,14 +877,14 @@ class Ntuple:
         fnames = []
         for fname in self.filename:
             if not os.path.exists(fname):
-                print "** Ntuple *** "\
-                      "root file %s not found" % fname
+                print("** Ntuple *** "\
+                      "root file %s not found" % fname)
                 sys.exit(0)
 
             # check file size
             size = os.path.getsize(fname)
             if size == 0:
-                print "== ZERO length == %s" % fname
+                print("== ZERO length == %s" % fname)
                 continue
             else:
                 fnames.append(fname)
@@ -895,7 +897,7 @@ class Ntuple:
         # create a chain of files
         self.chain = rt.TChain(treename)
         if not self.chain:
-            print "*** Ntuple *** can't create chain %s" % treename
+            print("*** Ntuple *** can't create chain %s" % treename)
             sys.exit(0)
 
         # ------------------------------------
@@ -905,15 +907,15 @@ class Ntuple:
             try:
                 self.chain.Add(fname)
             except:
-                print "*** problem with file %s" % fname
+                print("*** problem with file %s" % fname)
 
         self.entries = self.chain.GetEntries()
         self.tree = self.chain
         tree = self.tree
 
         if tree == None:
-            print "** problem accessing Tree - "\
-              "perhaps the name %s is wrong?" % treename
+            print("** problem accessing Tree - "\
+              "perhaps the name %s is wrong?" % treename)
             sys.exit(0)
 
         # get names of variables from root file
@@ -923,19 +925,19 @@ class Ntuple:
         try:
             nbranches = branches.GetEntries()
         except:
-            print "** ====>  problem accessing branches\n"
+            print("** ====>  problem accessing branches\n")
             self.status = -1
             return
 
         bnamemap = {}        
         self.vars = []
-        for i in xrange(nbranches):
+        for i in range(nbranches):
             # get the ith branch (aka variable)
             bname = branches[i].GetName()
             			
             # just in case, check for duplicates!
-            if bnamemap.has_key(bname):
-                print '** duplicate branch name: %s' % bname
+            if bname in bnamemap:
+                print('** duplicate branch name: %s' % bname)
                 continue
             else:
                 bnamemap[bname] = 1
@@ -944,12 +946,12 @@ class Ntuple:
             # Get all leaves associated with this branch
             leaves = branches[i].GetListOfLeaves()
             if leaves == None:
-                print "No leaves found!"
+                print("No leaves found!")
                 sys.exit(0)
 
             leaf = leaves[0]
             if leaf == None:
-                print "No leaf found"
+                print("No leaf found")
                 sys.exit(0)
 
             leafname = leaf.GetName()
@@ -1073,7 +1075,7 @@ class Ntuple:
             return self.status == 0
 
     def get(self, variable):
-        if self.buffermap.has_key(variable):
+        if variable in self.buffermap:
             jj = self.buffermap[variable]
             return self.buffer[jj].__getattribute__(variable)
         else:
@@ -1086,7 +1088,7 @@ class Ntuple:
         return rec
 
     def ls(self):
-        print self.__str__()
+        print(self.__str__())
 
     # Implement Python iterator protocol
 
@@ -1161,7 +1163,7 @@ class BDT:
         from os import path
         from sys import exit
         if not path.exists(filename):
-            print '** BDT ** error ** cannot open file %s' % filename
+            print('** BDT ** error ** cannot open file %s' % filename)
             exit()
 
         record = open(filename).read()
@@ -1171,14 +1173,14 @@ class BDT:
         self.forest  = []
 
         for index, record in enumerate(recs):
-            record = replace(record, 'NN(', 'Node(')
-            record = replace(record,'  //','#')
-            record = replace(record,'  fBoostWeights.push_back','self.weights.append')
-            record = replace(record,'  fForest.push_back','self.forest.append')
-            record = replace(record,';','')
+            record = record.replace( 'NN(', 'Node(')
+            record = record.replace('  //','#')
+            record = record.replace('  fBoostWeights.push_back','self.weights.append')
+            record = record.replace('  fForest.push_back','self.forest.append')
+            record = record.replace(';','')
             exec(record)
             if index % 100 == 0:
-                print index
+                print(index)
 
     def __del__(self):
         pass
@@ -1193,7 +1195,7 @@ class BDT:
 
         value = 0.0
         norm  = 0.0
-        for itree in xrange(ntrees):
+        for itree in range(ntrees):
             current = self.forest[itree]
             while current.getNodeType() == 0:
                 if current.goesRight(inputValues):
@@ -1208,7 +1210,7 @@ class BDT:
     def printTree(self, itree, varnames, depth=0, which=0, node=None):
         if which == 0:
             node = self.forest[itree]
-            print "tree number %d\tweight = %10.3e" % (itree, self.weights[itree])
+            print("tree number %d\tweight = %10.3e" % (itree, self.weights[itree]))
 
         if node == 0: return
         if node == None: return
@@ -1222,7 +1224,7 @@ class BDT:
             which = 'left  node'
         else:
             which = 'right node'            
-        print "%10d %10s %10s\t%10.2f" % (depth, which, name, value)
+        print("%10d %10s %10s\t%10.2f" % (depth, which, name, value))
         depth += 1
         self.printTree(itree, varnames, depth, -1, node.left)
         self.printTree(itree, varnames, depth,  1, node.right)
@@ -1249,11 +1251,11 @@ class BDT:
             node = self.forest[itree]
 
         if node == None:
-            print "*** node is None - shouldn't happen ***"
+            print("*** node is None - shouldn't happen ***")
             sys.exit(0)
 
         if self.hplot == None:
-            print "*** hplot is None - shouldn't happen ***"
+            print("*** hplot is None - shouldn't happen ***")
             sys.exit(0)
 
         if node == 0:
@@ -1261,7 +1263,7 @@ class BDT:
 
         self.binNumber += 1
         if self.binNumber > 20:
-            print "*** lost in trees ***"
+            print("*** lost in trees ***")
             sys.exit(0)
 
         ## print "%d%10.2f%10.2f%10.2f%10.2f selector: %d" % (self.binNumber,
