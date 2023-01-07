@@ -64,7 +64,7 @@ math: True
 >> 
 >> $$\tau_s  = \hat{s} / \delta s^2,$$
 >>
->> are the effective counts and scale factors for the $ZZ$ and $Z\!+\!X$ backgrounds and the signal. Note that in this context, $s$ and $b_j$ are nuisance parameters. Therefore, in order to make inferences about the signal strength, we need to reduce the likelihood $\mathcal{L}(μ,s,b_{ZZ},b_{ZX})$ to a function of $μ$ only. This can be done either by
+>> are the effective counts and scale factors for the $ZZ$ and $Z+X$ backgrounds and the signal. Note that in this context, $s$ and $b_j$ are nuisance parameters. Therefore, in order to make inferences about the signal strength, we need to reduce the likelihood $\mathcal{L}(μ,s,b_{ZZ},b_{ZX})$ to a function of $μ$ only. This can be done either by
 >> - *profiling*, that is replacing $s$ and $b_j$ with their best fit values $\hat{s}(μ)$ and $\hat{b}_j(μ)$ for a given value of $μ$, or by
 >> - *marginalization*, that is, integrating the likelihood times a prior with respect to $s$ and $b_j$. A uniform prior in $s$ and $b_j$ is used.
 {: .solution}
