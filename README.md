@@ -1,4 +1,4 @@
-# CMSDAS Statistics Short Exercise
+# CMSDAS Statistics Short Exercise Webpage
 
 ## Contributing
 
