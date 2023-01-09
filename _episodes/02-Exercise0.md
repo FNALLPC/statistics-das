@@ -44,7 +44,7 @@ math: True
 >> 
 >> If $X \approx Y \approx K$, we may conclude that we have no grounds for rejecting the hypothesis $H_0$. A probabilistic way to say the same thing is to compute a *p-value*, defined by
 >>
->> $$ \text{p-value} = \rm{Pr}(X' > X | H_0), $$
+>> $$ \text{p-value} = {\rm Pr}(X' > X | H_0) $$
 >>
 >> under the assumption that $H_0$ is true and *reject* the hypothesis if the p-value is judged to be too small. The intuition here is that if we observe a gof measure that is way off in the tail of the distribution of $X$, then either a rare fluctuation has occurred or the hypothesis $H_0$ is false. It is a matter of judgment and, or, convention which conclusion is to be adopted.
 >>
