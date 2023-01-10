@@ -1,8 +1,10 @@
 ---
 title: Setup
 ---
-> ## Github repo
-> The following instructions are also given in the README: [https://github.com/FNALLPC/statistics-das/blob/master/README.md](https://github.com/FNALLPC/statistics-das/blob/master/README.md)
+> ## Github repo and Mattermost
+> - The following instructions are also given in the README: [https://github.com/FNALLPC/statistics-das/blob/master/README.md](https://github.com/FNALLPC/statistics-das/blob/master/README.md)
+> 
+> - Join the Mattermost channel and feel free to ask questions: <https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortexstatistics>
 {: .callout}
 
 ## Setting up
