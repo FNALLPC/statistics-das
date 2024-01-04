@@ -61,10 +61,12 @@ git clone https://github.com/FNALLPC/statistics-das
 
 ## Links
 
-The indico page is: [https://indico.cern.ch/e/cmsdas2023](https://indico.cern.ch/e/cmsdas2023)
+- FNAL github site (instead of twiki) : <https://fnallpc.github.io/statistics-das/>
 
-The Mattermost for live support is: <https://mattermost.web.cern.ch/cmsdaslpc2024/channels/shortex-statistics>. (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
+<!-- The indico page is: [https://indico.cern.ch/e/cmsdas2023](https://indico.cern.ch/e/cmsdas2023) -->
 
-The twiki is: <https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2024StatisticsExercise>
+- The Mattermost for live support is: <https://mattermost.web.cern.ch/cmsdaslpc2024/channels/shortex-statistics>. (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
 
-FNAL github site (instead of twiki) : <https://fnallpc.github.io/statistics-das/>
+- The twiki is: <https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2024StatisticsExercise>
+
+
