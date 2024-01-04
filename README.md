@@ -17,53 +17,54 @@ This is a set of tutorials for the CMS Data Analysis School (DAS) Statistics Sho
  8. [`5/exercise_5.ipynb`](5/exercise_5.ipynb): unbinned fit to Type Ia supernovae distance modulus/red shift data (optional)
  9. [`6/exercise_6.ipynb`](6/exercise_6.ipynb): histogram template analysis using `combine` (optional)
  
-## Setup
+## Setting up on [Swan](http://swan.web.cern.ch/)
 
-We will be using the Vanderbilt JupyterHub. 
+<!-- We will be using the Vanderbilt JupyterHub.
 
-*Hint! You may want to open this link in a new tab so that you can refer to these instructions for the next steps.*
+*Hint!* You may want to open this link in a new tab so that you can refer to these instructions for the next steps.
 
-Point your browser to:
-
-[https://jupyter.accre.vanderbilt.edu/](https://jupyter.accre.vanderbilt.edu/)
-
+Point your browser to: [https://jupyter.accre.vanderbilt.edu/](https://jupyter.accre.vanderbilt.edu/)
 
 If this is the first time using this JupyterHub, you should see:
 
-<p align="center">
-  <img src="vanderbilt.png" width="500"/>
-</p>
+![](https://github.com/FNALLPC/statistics-das/raw/master/vanderbilt.png){: width="80%" .image-with-shadow}
 
-Click the "Sign in with Jupyter ACCRE" button. On the following page, select CERN as your identity provider and click the "Log On" button. Then, enter your CERN credentials or use your CERN grid certificate to autheticate.  
+
+Click the "Sign in with Jupyter ACCRE" button. On the following page, select CERN as your identity provider and click the "Log On" button. Then, enter your CERN credentials or use your CERN grid certificate to autheticate.
 
 To start a new session, make sure the following drop-down options are selected:
-* **Select a Docker image:** *Default ACCRE Image v5*
-* **Select a container size:** *1 Core, 2GB RAM, 4 day timeout*
 
-Then click the orange **Spawn** button.
+- Select a Docker image: Default ACCRE Image v5
+- Select a container size: 1 Core, 2GB RAM, 4 day timeout
 
-Now you should see the JupyterHub home directory. Click on "New" then "Terminal" in the top right to launch a new terminal.
+Then click the orange Spawn button. Now you should see the JupyterHub home directory. Click on "New" then "Terminal" in the top right to launch a new terminal.
 
-<p align="center">
-  <img src="new_terminal.png" width="200"/>
-</p>
+![](https://github.com/FNALLPC/statistics-das/raw/master/new_terminal.png){: width="29%" .image-with-shadow} -->
 
-In the terminal window, download the tutorials by typing:
+1. Go to <http://swan.web.cern.ch/> on your browser
 
-```
+2. Sign in to Single Sign On (SSO) with your CERN account username and password
+
+3. Configure container environment parameters and click on "Start My Session"
+> 
+> you can use the defauly parameters: (Software Stack: 104a, Platform: CentOS 7 (gcc 11), Number of cores: 4, Memory: 8 GB, Spark cluster: None)
+4. On the upper right corner, click on "`New Terminal >_`" button. This opens a new tab with a terminal
+
+5. In the terminal window, download the tutorials by typing:
+```bash
 git clone https://github.com/FNALLPC/statistics-das
 ```
+6. In the original tab, click on "CERNBox" button at the top
 
-*Hint! If you want to cut-and-paste this command in the terminal, highlight the link and copy it as you usually would (Ctrl+c). To paste it, use Shift+Ctrl+v*
+7. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there. You can directly run one of them by opening them, e.g. `statistics-das/0/exercise_0.ipynb`
 
-Now go back to the Jupyter directory tab. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.  Start by clicking on [`setup-libraries.ipynb`](setup-libraries.ipynb) and running it.
 
 ## Links
 
 The indico page is: [https://indico.cern.ch/e/cmsdas2023](https://indico.cern.ch/e/cmsdas2023)
 
-The Mattermost for live support is: <https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortexstatistics>. (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
+The Mattermost for live support is: <https://mattermost.web.cern.ch/cmsdaslpc2024/channels/shortex-statistics>. (If you don't have access, see the general CMSDAS instructions for the Mattermost signup link.)
 
-The twiki is: <https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023StatisticsExercise>
+The twiki is: <https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2024StatisticsExercise>
 
 FNAL github site (instead of twiki) : <https://fnallpc.github.io/statistics-das/>
