@@ -32,16 +32,11 @@ Then click the orange Spawn button. Now you should see the JupyterHub home direc
 ![](https://github.com/FNALLPC/statistics-das/raw/master/new_terminal.png){: width="29%" .image-with-shadow} -->
 
 1. Go to <http://swan.web.cern.ch/> on your browser
-</br>
 2. Sign in to Single Sign On (SSO) with your CERN account username and password
-</br>
 3. Configure container environment parameters and click on "start session"
-</br>
 > 
 > you can use the defauly parameters: (Software Stack: 104a, Platform: CentOS 7 (gcc 11), Number of cores: 4, Memory: 8 GB, Spark cluster: None)
-</br>
 4. On the upper right corner, click on "`New Terminal >_`" button. This opens a new tab with a terminal
-</br>
 5. In the terminal window, download the tutorials by typing:
 ```bash
 git clone https://github.com/FNALLPC/statistics-das
