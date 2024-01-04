@@ -31,7 +31,7 @@ Then click the orange Spawn button. Now you should see the JupyterHub home direc
 
 ![](https://github.com/FNALLPC/statistics-das/raw/master/new_terminal.png){: width="29%" .image-with-shadow} -->
 
-1. Go to http://swan.web.cern.ch/
+1. Go to <http://swan.web.cern.ch/>
 
 2. Sign in to Single Sign On (SSO) with your CERN account username and password
 
