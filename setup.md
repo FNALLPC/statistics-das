@@ -37,6 +37,7 @@ Then click the orange Spawn button. Now you should see the JupyterHub home direc
 
 3. Configure container environment parameters and click on "start session"
 
+> 
 > you can use the defauly parameters: (Software Stack: 104a, Platform: CentOS 7 (gcc 11), Number of cores: 4, Memory: 8 GB, Spark cluster: None)
 
 4. On the upper right corner, click on "New Terminal >_" button. This opens a new tab with a terminal
