@@ -9,7 +9,7 @@ title: Setup
 
 ## Setting up
 
-We will be using the Vanderbilt JupyterHub.
+<!-- We will be using the Vanderbilt JupyterHub.
 
 *Hint!* You may want to open this link in a new tab so that you can refer to these instructions for the next steps.
 
@@ -29,7 +29,7 @@ To start a new session, make sure the following drop-down options are selected:
 
 Then click the orange Spawn button. Now you should see the JupyterHub home directory. Click on "New" then "Terminal" in the top right to launch a new terminal.
 
-![](https://github.com/FNALLPC/statistics-das/raw/master/new_terminal.png){: width="29%" .image-with-shadow}
+![](https://github.com/FNALLPC/statistics-das/raw/master/new_terminal.png){: width="29%" .image-with-shadow} -->
 
 In the terminal window, download the tutorials by typing:
 
