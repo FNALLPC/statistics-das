@@ -49,7 +49,7 @@ math: True
 >> under the assumption that $H_0$ is true and *reject* the hypothesis if the p-value is judged to be too small. The intuition here is that if we observe a gof measure that is way off in the tail of the distribution of $X$, then either a rare fluctuation has occurred or the hypothesis $H_0$ is false. It is a matter of judgment and, or, convention which conclusion is to be adopted.
 >>
 >> All of this, of course, depends on the validity of the asymptotic approximation. One way to check whether the approximation is reasonable is to compare the measures $X$ and $Y$, or, equivalently, their associated p-values. Should they turn out to be about the same, then we can happily conclude that the land of *Asymptotia* is in sight!
-{: .solution}
+{: .keypoints}
 
 In this exercise you will learn how to use `RooFit` (via the `Python/ROOT` interface, `PyROOT`) to fit functions to data. As an example, the notebook `exercise_0.ipynb` generates "pseudo-data" from a given model, and then fits that pseudo-data using the same functional form. The first part of the exercise consists simply of running the notebook `exercise_0.ipynb`, reading through the program, and trying to understand what it is doing.
 
@@ -87,7 +87,7 @@ p-value   =    0.7033
 ```
 {: .output}
 
-and two plots should appear, then disappear. Read through the notebook `exercise_0.ipynb` and try to understand what it is doing. Feel free to play around with the notebook. 
+and two plots should appear, then disappear. Read through the notebook `exercise_0.ipynb` and try to understand what it is doing. Feel free to play around with the notebook. Check the suggestions below for examples of things you can change.
 
 > ## Suggestions
 > - [x] Change the number of pseudo-data events to generate and re-run the fit.
