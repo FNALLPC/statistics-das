@@ -32,16 +32,20 @@ Then click the orange Spawn button. Now you should see the JupyterHub home direc
 ![](https://github.com/FNALLPC/statistics-das/raw/master/new_terminal.png){: width="29%" .image-with-shadow} -->
 
 1. Go to <http://swan.web.cern.ch/> on your browser
+
 2. Sign in to Single Sign On (SSO) with your CERN account username and password
+
 3. Configure container environment parameters and click on "start session"
 > 
 > you can use the defauly parameters: (Software Stack: 104a, Platform: CentOS 7 (gcc 11), Number of cores: 4, Memory: 8 GB, Spark cluster: None)
 4. On the upper right corner, click on "`New Terminal >_`" button. This opens a new tab with a terminal
+
 5. In the terminal window, download the tutorials by typing:
 ```bash
 git clone https://github.com/FNALLPC/statistics-das
 ```
 6. In the original tab, click on "CERNBox" button at the top
+
 7. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there. You can directly run one of them by opening them, e.e. `statistics-das/0/exercise_0.ipynb`
 
 > ## Hint!
