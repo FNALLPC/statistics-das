@@ -67,11 +67,11 @@ git clone https://github.com/FNALLPC/statistics-das.git
 Jupyter notebooks are structured into **cells**. It is recommended that you execute the notebooks one cell at a time to ensure that each cell works as expected. And, yes, cells should be executed sequentially! Of course, if you're careful, you can go back and re-execute cells. But remember jupyter notebooks are ``sticky'' in that the notebook pays attention to the order in which cells have been executed. This can lead to confusion. If things get really messed up, it's usually better to re-launch the jupyter kernel and start again from scratch.
 
 ### Some useful shortcuts
-    - Use **esc r** to disable a cell
-    - Use **esc y** to reactivate it
-    - Use **esc m** to go to markdown mode. Markdown is the typesetting language used in jupyter notebooks. In a markdown cell, double tap the mouse or glide pad (on your laptop) to go to edit mode.
-    - Shift + return to execute a cell (including markdown cells).
-    - If the equations don't typeset, try double tapping the cell again, and re-execute it.
+- Use **esc r** to disable a cell
+- Use **esc y** to reactivate it
+- Use **esc m** to go to markdown mode. Markdown is the typesetting language used in jupyter notebooks. In a markdown cell, double tap the mouse or glide pad (on your laptop) to go to edit mode.
+- Shift + return to execute a cell (including markdown cells).
+- If the equations don't typeset, try double tapping the cell again, and re-execute it.
 
 ## Links
 
