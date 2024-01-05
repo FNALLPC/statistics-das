@@ -1,4 +1,4 @@
-# CMS Data Analysis School (CMSDAS) - Statistics Short Exercise
+# CMS Data Analysis School (CMSDAS): Statistics Short Exercise
 
 ## Introduction
 
