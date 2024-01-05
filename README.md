@@ -8,7 +8,6 @@ This is a set of tutorials for the CMS Data Analysis School (CMSDAS) Statistics 
 
 | __notebooks__   | __description__     |
 | :---          | :---        |
-| [`setup-libraries.ipynb`](setup-libraries.ipynb) |  setting up libraries using `CMSSW` |
 | [`0/exercise_0.ipynb`](0/exercise_0.ipynb) | a very short `PyROOT`/`RooFit` tutorial | 
 | [`1/exercise_1.ipynb`](1/exercise_1.ipynb) | analyzing a single count using `RooFit`/`RooStats`  |
 | [`2/exercise_2.ipynb`](2/exercise_2.ipynb) | analyzing three counts using `RooFit`/`RooStats` |
@@ -61,10 +60,11 @@ cd
 cd SWAN_projects
 git clone https://github.com/FNALLPC/statistics-das.git
 ```
-6. In the original tab, click on the `CERNBox` button at the top of the page and click on the folder `SWAN_projects`. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
+6. In the original tab, click on the `CERNBox` button at the top of the page and click on the folder `SWAN_projects`. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.
+7. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
 
 ## Notebook Tips
-It is recommended that you execute the notebooks one cell at a time to ensure that each one works as expected. And, yes, they should be executed sequentially! Of course, if you're careful, you can go back and re-execute cells. But remember jupyter notebooks are ``sticky'' in that the notebook pays attention to the order in which cells have been executed. This can lead to confusion. If things get really messed up, it's usually better to re-launch the jupyter kernel and start again from scratch.
+Jupyter notebooks are structured into **cells**. It is recommended that you execute the notebooks one cell at a time to ensure that each cell works as expected. And, yes, cells should be executed sequentially! Of course, if you're careful, you can go back and re-execute cells. But remember jupyter notebooks are ``sticky'' in that the notebook pays attention to the order in which cells have been executed. This can lead to confusion. If things get really messed up, it's usually better to re-launch the jupyter kernel and start again from scratch.
 
 ### Some useful shortcuts
     - Use **esc r** to disable a cell
