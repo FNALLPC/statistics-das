@@ -4,7 +4,7 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 title: An Introduction to the Statistics Tools RooFit, RooStats, and combine
 ---
-> ## Reference Material
+> # Reference Material
 > - [Combine Manual](https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/wiki)
 > - [Combine Tutorial at LPC](https://indico.cern.ch/event/747340/timetable/)
 > - [Practical Statistics for LHC Physicists](https://indico.cern.ch/event/358542/) - Three CERN Academic Lectures by Harrison Prosper
