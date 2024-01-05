@@ -1,21 +1,23 @@
-# CMS Data Analysis School (DAS) - Statistics Short Exercise
+# CMS Data Analysis School (CMSDAS) - Statistics Short Exercise
 
 ## Introduction
 
-This is a set of tutorials for the CMS Data Analysis School (DAS) Statistics Short Exercise. 
+This is a set of tutorials for the CMS Data Analysis School (CMSDAS) Statistics Short Exercise that are implemented in Jupyter notebooks. The tutorials provide a concise introduction to key ideas in statistics and a few of the statistical analysis tools commonly used in high-energy physics.
 
 ## Main notebooks in this tutorial
 
- 0. [`setup-libraries.ipynb`](setup-libraries.ipynb): setting up libraries using `CMSSW`
- 1. [`0/exercise_0.ipynb`](0/exercise_0.ipynb): a very short `PyROOT`/`RooFit` tutorial
- 2. [`1/exercise_1.ipynb`](1/exercise_1.ipynb): analyzing a single count using `RooFit`/`RooStats` 
- 3. [`2/exercise_2.ipynb`](2/exercise_2.ipynb): analyzing three counts using `RooFit`/`RooStats`
- 4. [`3/exercise_3a.ipynb`](3/exercise_3a.ipynb): analyzing three counts using `combine`
- 5. [`3/exercise_3b.ipynb`](3/exercise_3b.ipynb): a realistic counting experiment using `combine`
- 6. [`3/exercise_3c.ipynb`](3/exercise_3c.ipynb): systematic uncertainties for data-driven background estimates using `combine`
- 7. [`4/exercise_4.ipynb`](4/exercise_4.ipynb): binned fit to Run I H->gg data (optional)
- 8. [`5/exercise_5.ipynb`](5/exercise_5.ipynb): unbinned fit to Type Ia supernovae distance modulus/red shift data (optional)
- 9. [`6/exercise_6.ipynb`](6/exercise_6.ipynb): histogram template analysis using `combine` (optional)
+| __notebooks__   | __description__     |
+| :---          | :---        |
+| [`setup-libraries.ipynb`](setup-libraries.ipynb) |  setting up libraries using `CMSSW` |
+| [`0/exercise_0.ipynb`](0/exercise_0.ipynb) | a very short `PyROOT`/`RooFit` tutorial | 
+| [`1/exercise_1.ipynb`](1/exercise_1.ipynb) | analyzing a single count using `RooFit`/`RooStats`  |
+| [`2/exercise_2.ipynb`](2/exercise_2.ipynb) | analyzing three counts using `RooFit`/`RooStats` |
+| [`3/exercise_3a.ipynb`](3/exercise_3a.ipynb) | analyzing three counts using `combine` | 
+| [`3/exercise_3b.ipynb`](3/exercise_3b.ipynb) | a realistic counting experiment using `combine` | 
+| [`3/exercise_3c.ipynb`](3/exercise_3c.ipynb) | systematic uncertainties for data-driven background estimates using `combine` |
+| [`4/exercise_4.ipynb`](4/exercise_4.ipynb) | binned fit to Run I H->gg data (optional) | 
+| [`5/exercise_5.ipynb`](5/exercise_5.ipynb) | unbinned fit to Type Ia supernovae distance modulus/red shift data (optional) |
+| [`6/exercise_6.ipynb`](6/exercise_6.ipynb) | histogram template analysis using `combine` (optional) |
  
 ## Setting up on [Swan](http://swan.web.cern.ch/)
 
