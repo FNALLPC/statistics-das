@@ -61,7 +61,8 @@ cd SWAN_projects
 git clone https://github.com/FNALLPC/statistics-das.git
 ```
 6. In the original tab, click on the `CERNBox` button at the top of the page and click on the folder `SWAN_projects`. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there.
-7. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
+7. Open and execute the contents of setup-libraries.ipynb
+8. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
 
 ## Notebook Tips
 Jupyter notebooks are structured into **cells**. It is recommended that you execute the notebooks one cell at a time to ensure that each cell works as expected. And, yes, cells should be executed sequentially! Of course, if you're careful, you can go back and re-execute cells. But remember jupyter notebooks are ``sticky'' in that the notebook pays attention to the order in which cells have been executed. This can lead to confusion. If things get really messed up, it's usually better to re-launch the jupyter kernel and start again from scratch.
