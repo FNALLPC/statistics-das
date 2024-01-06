@@ -46,7 +46,8 @@ git clone https://github.com/FNALLPC/statistics-das
 ```
 6. In the original tab, click on "CERNBox" button at the top
 
-7. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there. You can directly run one of them by opening them, e.g. `statistics-das/0/exercise_0.ipynb`
+7. There should be a new directory called `statistics-das`. All of the tutorials and exercises are in there. Go there, Open and execute the contents of `setup-libraries.ipynb`
+8. You can directly run one of the notebooks by opening them, e.g. `statistics-das/0/exercise_0.ipynb`
 
 > ## Hint!
 > If you want to cut-and-paste this command in the terminal, highlight the link and copy it as you usually would <kbd>Ctrl</kbd>+<kbd>c</kbd> or <kbd>⌘</kbd>+<kbd>c</kbd>. To paste it, use <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>v</kbd>  or <kbd>Shift</kbd>+<kbd>⌘</kbd>+<kbd>v</kbd>
