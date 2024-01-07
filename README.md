@@ -64,7 +64,7 @@ git clone https://github.com/FNALLPC/statistics-das.git
 7. Open and execute the contents of setup-libraries.ipynb
 8. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
 
-If you face compilation or jupyter kernel errors when running `comnie` from the jupyter notebook in exercise 3, you can compile the `comibine` tool in the `Swan` terminal by doing `source build-combine-standalone.sh`.
+If you face compilation or jupyter kernel errors when running `combine` from the jupyter notebook in exercise 3, you can compile the `combine` tool in the `Swan` terminal by doing `source build-combine-standalone.sh`.
 
 ## Notebook Tips
 Jupyter notebooks are structured into **cells**. It is recommended that you execute the notebooks one cell at a time to ensure that each cell works as expected. And, yes, cells should be executed sequentially! Of course, if you're careful, you can go back and re-execute cells. But remember jupyter notebooks are ``sticky'' in that the notebook pays attention to the order in which cells have been executed. This can lead to confusion. If things get really messed up, it's usually better to re-launch the jupyter kernel and start again from scratch.
