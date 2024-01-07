@@ -4,7 +4,7 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 title: An Introduction to the Statistics Tools RooFit, RooStats, and combine
 ---
-> # Reference Material
+> ## Reference Material
 > - [Combine Manual](https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/wiki)
 > - [Combine Tutorial at LPC](https://indico.cern.ch/event/747340/timetable/)
 > - [Practical Statistics for LHC Physicists](https://indico.cern.ch/event/358542/) - Three CERN Academic Lectures by Harrison Prosper
@@ -15,8 +15,6 @@ title: An Introduction to the Statistics Tools RooFit, RooStats, and combine
 > - [RooStats Tutorial](http://indico.cern.ch/getFile.py/access?contribId=0&sessionId=1&resId=0&materialId=slides&confId=118720) - Tutorial by Kyle Cranmer, one of the RooStats developers
 > - [RooStats Tutorials](http://root.cern.ch/root/html/tutorials/roostats/index.html) - A set of macros that showcase all major features of RooStats
 > - [CMS DAS 2014 Statistics Exercise](https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolStatistics2014) - A tutorial on statistics as used in CMS
-<!-- > - [Advanced uses of combine]() - A tutorial on several advanced features (e.g. signal bias studies, rate parameters, etc.) of combine -->
-<!-- > - [CMSDAS-Statistics Github]() - Github repository containing these excercises -->
 > - [Procedure for the LHC Higgs boson search combination in Summer 2011](https://cds.cern.ch/record/1379837) - Paper describing LHC statistical procedures
 > - [Combine Github](https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit) - Github repository for combine
 > - [LPC statistics course](https://indico.cern.ch/event/653271/) - Lectures by Harrison Prosper and Ulrich Heintz, fall 2017
