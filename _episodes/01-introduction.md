@@ -3,11 +3,9 @@ title: "Introduction"
 teaching: 10
 exercises: 0
 questions:
-- "Key question"
-What are the goals of a statistical analysis?
+- "Key question: What are the goals of a statistical analysis?"
 objectives:
-- "First learning objective"
-To learn a few statistical concepts and how they are related to the different interpretations of probability.
+- "First learning objective: Learn a few statistical concepts and their relationship to probability."
 math: True
 ---
 
