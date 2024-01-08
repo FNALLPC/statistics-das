@@ -9,7 +9,8 @@ This is a set of tutorials for the CMS Data Analysis School (CMSDAS) Statistics 
 | __notebooks__   | __description__     |
 | :---          | :---        |
 | [`0/exercise_0.ipynb`](0/exercise_0.ipynb) | a very short `PyROOT`/`RooFit` tutorial | 
-| [`1/exercise_1.ipynb`](1/exercise_1.ipynb) | analyzing a single count using `RooFit`/`RooStats`  |
+| [`1/exercise_1a.ipynb`](1/exercise_1a.ipynb) | analyzing a single count using `RooFit`/`RooStats`  |
+| [`1/exercise_1b.ipynb`](1/exercise_1b.ipynb) | analyzing a single count using `RooFit`/`RooStats`  |
 | [`2/exercise_2.ipynb`](2/exercise_2.ipynb) | analyzing three counts using `RooFit`/`RooStats` |
 | [`3/exercise_3a.ipynb`](3/exercise_3a.ipynb) | analyzing three counts using `combine` | 
 | [`3/exercise_3b.ipynb`](3/exercise_3b.ipynb) | a realistic counting experiment using `combine` | 
