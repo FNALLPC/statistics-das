@@ -11,7 +11,7 @@ math: True
 >> 
 >> $$\int f(x;\theta)\; dx=1$$
 >> 
->> and fits the data to the same model using both un-binned and binned fits. In both cases, `Minuit` is used to minimize the negative log-likelihood,
+>> and fits the same model to the data using both un-binned and binned fits. In both cases, the famed minimizer `Minuit` from CERN is used to minimize the negative log-likelihood (which is equivalent to maximizing the likelihood),
 >>
 >> $$ l(\theta) = - \ln \mathcal{L}(\theta) $$
 >>

@@ -7,7 +7,7 @@ questions:
 What are the goals of a statistical analysis?
 objectives:
 - "First learning objective"
-To learn a few key statistical concepts and how they are related to the different interpretations of probability.
+To learn a few statistical concepts and how they are related to the different interpretations of probability.
 math: True
 ---
 
