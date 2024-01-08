@@ -5,12 +5,12 @@ math: True
 # Analyzing a single count using `RooFit/RooStats`
 
 
-> ## Mathematical Background 
->> The goal of this exercise is to infer something about the signal strength parameter $\mu$, defined by
+> ## Mathematical Background 1
+>> The goal of this exercise is to infer a value for the signal strength parameter $\mu$, defined by
 >>
 >> $$ n = \mu s + b_{ZZ} + b_{ZX} $$
 >>
->> where $s$ and $b_{\*} $ are the *mean* and background counts, respectively. We shall use lower case to denote parameters, that is, the *unknowns*, while and estimate of a parameter, a *known*, is denoted by the parameter decorated with a *hat*, e.g. $\hat{b}_{ZZ}$ is an estimate of $b\_{ZZ\}$
+>> where $s$ and $b_{\*} $ are the *mean* and background counts, respectively. We shall use lower case to denote parameters, that is, the *unknowns*, while an estimate of a parameter, a *known*, is denoted by the parameter decorated with a *hat*, e.g. $\hat{b}_{ZZ}$ is an estimate of $b\_{ZZ\}$
 >> 
 >> Observations, also *known*, are denoted with upper case variables. This is shown in the table below.
 >>
@@ -32,7 +32,7 @@ math: True
 >>
 >> What about that for $\hat{b}_{*}$ and $\hat{s}$? If we were performing Bayesian calculations only, we would simply write down a prior density for both parameters, say a gamma density. However, we also want to perform frequentist calculations, which do not use priors. So, somehow, we need to mock up likelihoods for the background and the signal estimates.
 >> 
->> An obvious choice is to model the likelihoods with Gaussians. But, since we know that the signal and background, in this problem, cannot be negative we need to work a bit harder. A standard way to proceed is to model each estimate as an (effective) Poisson count, $Q$ that has been scaled by a factor $q$, for example,
+>> An obvious choice is to model the likelihoods with Gaussians (as in `exercise_1b`. But, since we know that the signal and background, in this problem, cannot be negative we need to work a bit harder. A standard way to proceed is to model each estimate as an (effective) Poisson count, $Q$ that has been scaled by a factor $q$, for example,
 >>
 >> $$\hat{b} =  Q/q$$
 >> 
@@ -72,13 +72,13 @@ math: True
 
 
 > ## Mathematical Background 2 (rephrased) 
->> **We will be using this popular model a lot in this exercise. It is simple, and it is sufficient to showcase most of the components of a statistics analysis for a CMS measurement.** We will consider a common case of a counting experiment: a number of events is observed in data, some of them are signal events, the rest is background. The observed event yield is expected to be distributed according to the Poisson law. We have some idea about the background yield, and we want to find a confidence interval on the signal yield, that is, on the Poisson mean for the signal. We can write down the model probability density function (PDF) for the observable $n$ as
+>> **We will be using this popular model a lot in this exercise. It is simple, and it is sufficient to showcase most of the components of a statistical analysis for a CMS measurement.** We will consider a common case of a counting experiment: a number of events is observed in data, some of which may be signal events and the rest background. Event counts are expected to be distributed according to the Poisson distribution. We have some idea about the background yield, and we want to find a confidence interval for the mean signal, that is, for the Poisson mean for the signal. We can write down the statistical model for the count $X$ as
 >>
->> $$p(n|\mu) = \frac{\mu^n e^{-\mu}}{n!} , \quad \mu = \mu_{\rm SIG} + \mu_{\rm BG} $$
+>> $$p(X|\mu) = \frac{\mu^X e^{-\mu}}{X!} , \quad \mu = \mu_{\rm SIG} + \mu_{\rm BG} $$
 >>
->> We will be using the likelihood approach to quantify our measurements. *Note that it is important to distinguish the likelihood and the PDF. The PDF is the probability (or probability density) for observing some data, if the model parameters are fixed. On the other hand, the likelihood is a function of the model parameters, if fixing the dataset. So you may think of likelihood as the PDF computed for specific data. But the Likelihood is not a PDF in the model parameters (for example, it's not properly normalized).* In case of the counting experiment, the likelihood looks very similar to the model PDF, we just substitute n with the observed event count $(N)$:
+>> When we set $X = N$ in the statistical model, we arrive at the **likelihood function**, which is the basis for the statistical analysis. *Note: it is important to distinguish the likelihood and the statistical model. The statistical model is the probability (or probability density) for observing some data for given values of the model parameters, while the likelihood is a function of the model parameters for a given dataset. So you may think of likelihood as the statistical model computed for specific data. But the Likelihood is not a statistical model, that is, a probabilty model, for the model parameters.* In case of the counting experiment, the likelihood is obtained by substituting $X$ with the observed event count $(N)$:
 >>
->> $$ \mathcal{L}(N|\mu) = \frac{\mu^n e^{-\mu}}{n!} \ \cdot \mathcal{L}(\mu_{\rm BG}) $$
+>> $$ \mathcal{L}(N|\mu) = \frac{\mu^N e^{-\mu}}{N!} \ \cdot \mathcal{L}(\mu_{\rm BG}) $$
 >>
 >> Here $\mathcal{L}(\mu_{\rm BG})$ represents the piece of the likelihood that describes our knowledge about the background. (Usually, this is a likelihood of a previous or an adjacent calibration experiment.)
 >>
@@ -95,11 +95,11 @@ The task is to analyze the data in the last column of the [Table 4]( {{"fig/HZZ4
  where $s$ and $b_{j}, \ j = ZZ, ZX $ are the expected, that is *mean* signal background counts, respectively, given the associated estimates $\hat{s} \pm \delta s$ and $\hat{b} \pm \delta b$. In this exercise, we shall assume that the signal and background estimates are statistically independent. (Lack of correlation is a weaker condition: two quantities $X$ and $Y$ can be uncorrelated yet be statistically dependent, that is, their joint probability density $p(X,Y)$ cannot be written as $p(X)p(Y)$.)
 
 
-The notebook `exercise_1.ipynb`
+The notebook `exercise_1a.ipynb`
 
 - creates a `RooWorkspace`
 - creates the model parameters
-- creates a model (a pdf) equal to the product of four Poisson distributions, one for the observed count $N$, one for each of the effective background counts $B_{ZZ}$ and $B_{ZX}$, and one for the effective signal count $S$
+- creates a model (a pdf in RooFit jargon) equal to the product of four Poisson distributions, one for the observed count $N$, one for each of the effective background counts $B_{ZZ}$ and $B_{ZX}$, and one for the effective signal count $S$
 - writes out the workspace to file `single_count.root`
 - reads in the workspace
 - finds the MLE of $μ$, and
@@ -138,9 +138,9 @@ and two plots should appear. Here are some suggested tasks.
 > - Repeat the calculation for $m_H = 126\textrm{GeV}$. 
 > 
 >> ## Hint
->> You can find the $m_H = 126\textrm{GeV}$ predictions in the comments at the top of `exercise_1.ipynb`
+>> You can find the $m_H = 126\textrm{GeV}$ predictions in the comments at the top of `exercise_1a.ipynb`
 > {: .solution}
-> - Replace the signal and background likelihoods by Gaussians and re-rerun. (See code snippet below).
+> - Replace the signal and background likelihoods by Gaussians and re-rerun. **Do so before looking at exercise_1b**! (See code snippet below).
 > ```python
 >wspace.factory('Gaussian::pB_zz(b_hat_zz, b_zz, db_zz)')
 > wspace.factory('Gaussian::pB_zx(b_hat_zx, b_zx, db_zx)')
