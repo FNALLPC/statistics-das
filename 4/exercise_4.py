@@ -6,6 +6,8 @@
 #------------------------------------------------------------------
 import os,sys
 from time import sleep
+import os, sys
+sys.path.insert(0,'../python')
 from histutil import *
 from ROOT import *
 #------------------------------------------------------------------
@@ -23,23 +25,23 @@ def makeHistograms(table, prefix=''):
     variables = table.variables()[1:]
     nrows = len(table)
     ncols = len(variables)
-    print 
-    print 'bins: %4d\tcategories: %4d\tmin, max: %5.1f, %5.1f GeV' % \
-      (nrows, ncols, mmin, mmax)
+    print("\n")
+    print('bins: %4d\tcategories: %4d\tmin, max: %5.1f, %5.1f GeV' % \
+      (nrows, ncols, mmin, mmax))
 
     # create a histogram for each category
     h = [None]*ncols
     xtitle = '#font[12]{m_{#gamma#gamma}} (GeV)'
     for ii, name in enumerate(variables):
         hname = '%s%s' % (prefix, name)
-        print '\t%s' % hname
+        print('\t%s' % hname)
         h[ii] = mkhist1(hname, xtitle, 'count / 0.8 GeV', nrows, mmin, mmax)
         h[ii].SetMarkerSize(0.40)
         h[ii].GetXaxis().SetTitleSize(0.08)
         h[ii].GetXaxis().SetTitleOffset(0.95)
         h[ii].GetYaxis().SetTitleOffset(1.15)
         h[ii].GetYaxis().SetTitleSize(0.08)
-        for jj in xrange(nrows):
+        for jj in range(nrows):
             h[ii].SetBinContent(jj+1, table[jj][ii+1])
     return h
 #------------------------------------------------------------------    
@@ -47,7 +49,7 @@ def plotHistograms(h, filename, title,
                    xoff=10, yoff=10, xwid=1000, ywid=1000):        
     c = TCanvas(filename, title, xoff, yoff, xwid, ywid)
     c.Divide(4, 4)
-    for ii in xrange(len(h)-1):
+    for ii in range(len(h)-1):
         c.cd(ii+1)
         h[ii].Draw('ep')
     c.Update()
@@ -101,7 +103,7 @@ def main():
     #----------------------------------------
     # suppress all messages except those that matter
     RooMsgService.instance().setGlobalKillBelow(RooFit.FATAL)
-    print "="*78    
+    print("="*78)    
     wspace = RooWorkspace('HGG')
 
     #----------------------------------------
@@ -157,15 +159,13 @@ def main():
     # ORed together
     #----------------------------------------
     # 7 TeV data sum
-    cmd = joinfields(map(lambda i: 'diphoton==diphoton::h7_c%2.2d' % i,
-                         range(len(h7))), '||')
+    cmd = "||".join('diphoton==diphoton::h7_c%2.2d' % i for i in range(len(h7)))
     datasum7 = data.reduce(cmd)
     datasum7.Print()
     ndata7 = int(datasum7.sumEntries())
 
     # 8 TeV data sum
-    cmd = joinfields(map(lambda i: 'diphoton==diphoton::h8_c%2.2d' % i,
-                         range(len(h8))), '||')
+    cmd = "||".join('diphoton==diphoton::h8_c%2.2d' % i for i in range(len(h8)))
     datasum8 = data.reduce(cmd)
     datasum8.Print()
     ndata8 = int(datasum8.sumEntries())
@@ -177,15 +177,15 @@ def main():
     ndatamax= ndata / 100000
     ndatamax= (ndatamax+1)*100000
         
-    print "-"*28
-    print "mass bins:     %6d" % nbins
-    print "min[mass]:      %7.1f GeV" % massmin
-    print "max[mass]:      %7.1f GeV" % massmax
-    print "ndata(7TeV):   %6d events" % ndata7
-    print "ndata(8TeV):   %6d events" % ndata8
-    print "ndata(7+8TeV): %6d events" % ndata
-    print "ndatamax:      %6d events" % ndatamax
-    print "-"*28
+    print("-"*28)
+    print("mass bins:     %6d" % nbins)
+    print("min[mass]:      %7.1f GeV" % massmin)
+    print("max[mass]:      %7.1f GeV" % massmax)
+    print("ndata(7TeV):   %6d events" % ndata7)
+    print("ndata(8TeV):   %6d events" % ndata8)
+    print("ndata(7+8TeV): %6d events" % ndata)
+    print("ndatamax:      %6d events" % ndatamax)
+    print("-"*28)
 
     #----------------------------------------
     # create background model
@@ -217,15 +217,15 @@ def main():
     wspace.factory('SUM::model(b*bmodel, s*smodel)')
     model = wspace.pdf('model')
 
-    print "-"*80
+    print("-"*80)
     wspace.Print()
-    print "-"*80
+    print("-"*80)
 
     #----------------------------------------
     # Fit
     #----------------------------------------
-    print "fit model to data"
-    print "="*80
+    print("fit model to data")
+    print("="*80)
 
     #d = data.reduce('diphoton==diphoton::h8_c01')
     d = data.reduce('diphoton==diphoton')
@@ -235,7 +235,7 @@ def main():
     swatch = TStopwatch()
     swatch.Start()
     model.fitTo(d)
-    print "real time: %10.3f s" % swatch.RealTime()
+    print("real time: %10.3f s" % swatch.RealTime())
     
     vbkg = wspace.var('b')
     vsig = wspace.var('s')
@@ -253,13 +253,13 @@ def main():
     ewidth= vwidth.getError()
     zvalue= sig / esig
 
-    print "="*80
-    print "background: %10.1f +\-%-5.1f GeV" % (bkg, ebkg)
-    print "signal:     %10.1f +\-%-5.1f" % (sig, esig)
-    print "mass:       %10.1f +\-%-4.1f GeV" % (mass, emass)
-    print "width:      %10.1f +\-%-4.1f GeV" % (width, ewidth)
-    print "sig/esig:   %10.1f" % zvalue
-    print
+    print("="*80)
+    print("background: %10.1f +\-%-5.1f GeV" % (bkg, ebkg))
+    print("signal:     %10.1f +\-%-5.1f" % (sig, esig))
+    print("mass:       %10.1f +\-%-4.1f GeV" % (mass, emass))
+    print("width:      %10.1f +\-%-4.1f GeV" % (width, ewidth))
+    print("sig/esig:   %10.1f" % zvalue)
+    print("\n")
 
     # now plot results of fit
     xframe = wspace.var('x').frame()
@@ -283,9 +283,9 @@ def main():
 try:
     main()
 except KeyboardInterrupt:
-    print
-    print "bye cruel world!"
-    print
+    print("\n")
+    print("bye cruel world!")
+    print("\n")
 
 
 
