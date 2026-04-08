@@ -29,8 +29,14 @@ This is a set of tutorials for the CMS Data Analysis School (CMSDAS) Statistics 
     git clone https://github.com/FNALLPC/statistics-das.git
     ```
     Make sure to use https and NOT ssh on `coffea.casa`.
-4. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
-5. When using `combine` or `text2workspace.py` you may encounter "command not found" error. If so, open a terminal and update the following environment variables:
+4. Initialize the environment:
+
+    ```bash
+    conda init
+    source  /home/cms-jovyan/.bashrc
+    ```
+5. To open a notebook, e.g. `statistics-das/0/exercise_0.ipynb`, simply click on the file.
+6. When using `combine` or `text2workspace.py` you may encounter "command not found" error. If so, open a terminal and update the following environment variables:
 
     ```
     export PATH=$PATH:/tmp/HiggsAnalysis/CombinedLimit/build/bin/
@@ -40,7 +46,7 @@ This is a set of tutorials for the CMS Data Analysis School (CMSDAS) Statistics 
     export PYTHONPATH=/tmp/HiggsAnalysis/CombinedLimit/build/lib/python
 
     ```
-6. Have a coffee.
+7. Have a coffee.
 
 ## Notebook Tips
 Jupyter notebooks are structured into **cells**. It is recommended that you execute the notebooks one cell at a time to ensure that each cell works as expected. And, yes, cells should be executed sequentially! Of course, if you're careful, you can go back and re-execute cells. But remember jupyter notebooks are ``sticky'' in that the notebook pays attention to the order in which cells have been executed. This can lead to confusion. If things get really messed up, it's usually better to re-launch the jupyter kernel and start again from scratch.
